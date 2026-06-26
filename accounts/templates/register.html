@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | SelfChat</title>
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+    <div class="left-side">
+        <h1>SelfChat</h1>
+        <p>
+            Turn your PDFs into an intelligent knowledge base. Ask questions in natural language and receive precise answers in seconds
+        </p>
+
+        <div class="circles">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+
+    <div class="form-card">
+
+        <h2>Create Account</h2>
+        <p class="subtitle">
+            Join SelfChat today
+        </p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {% for field in form %}
+
+                <div class="input-group">
+
+                    <label>{{ field.label }}</label>
+
+                    {{ field }}
+
+                    {% if field.errors %}
+                        <small class="error">
+                            {{ field.errors|striptags }}
+                        </small>
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <div class="login-link">
+            Already have an account?
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

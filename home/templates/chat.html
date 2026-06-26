@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ document.file.name|cut:"pdfs/" }} | SelfChat</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/chat.css' %}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        SelfChat
+    </div>
+
+    <div class="nav-right">
+
+        <span class="username">
+            👋 {{ request.user.username }}
+        </span>
+
+        <form method="POST"
+              action="{% url 'logout' %}">
+            {% csrf_token %}
+
+            <button class="logout-btn">
+                Logout
+            </button>
+
+        </form>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <a href="{% url 'home' %}" class="back-btn">
+        ← Back to Dashboard
+    </a>
+
+    <div class="document-header">
+
+        <h1>
+            📄 {{ document.file.name|cut:"pdfs/" }}
+        </h1>
+
+        <p>
+            Ask questions about this PDF.
+        </p>
+
+    </div>
+
+    <div class="chat-box">
+
+        {% if question %}
+
+            <div class="message user">
+
+                <div class="bubble">
+
+                    {{ question }}
+
+                </div>
+
+            </div>
+
+            <div class="message ai">
+
+                <div class="bubble">
+
+                    {{ answer }}
+
+                </div>
+
+            </div>
+
+        {% else %}
+
+            <div class="message ai">
+
+                <div class="bubble">
+
+                    👋 Welcome! Ask any question about this PDF and I'll answer using its contents.
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    <form method="POST" class="chat-form">
+
+        {% csrf_token %}
+
+        <input
+            type="text"
+            name="question"
+            placeholder="Ask something about this PDF..."
+            value="{{ question|default:'' }}"
+            autocomplete="off"
+            required
+        >
+
+        <button type="submit">
+            Send
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
