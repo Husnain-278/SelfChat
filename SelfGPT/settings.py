@@ -153,3 +153,7 @@ MISTRAL_API_KEY= os.getenv("MISTRAL_API_KEY")
 
 #Chroma DB
 CHROMA_DB_DIR = BASE_DIR / "chroma_db"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-d1a78.up.railway.app",
+]
