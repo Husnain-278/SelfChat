@@ -1,0 +1,238 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#071226;
+    overflow-x:hidden;
+}
+
+/* Background */
+
+.background{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top left,#1e40af55,transparent 30%),
+        radial-gradient(circle at bottom right,#2563eb44,transparent 30%),
+        linear-gradient(135deg,#071226,#0d1b36,#09152b);
+    z-index:-2;
+}
+
+/* Layout */
+
+.container{
+    width:min(1100px,92%);
+    display:grid;
+    grid-template-columns:1fr 470px;
+    gap:60px;
+    align-items:center;
+}
+
+/* Left */
+
+.left-side{
+    color:white;
+}
+
+.left-side h1{
+    font-size:4rem;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.left-side p{
+    max-width:480px;
+    font-size:1.05rem;
+    color:#c9d4f3;
+    line-height:1.8;
+}
+
+/* Decorative circles */
+
+.circles{
+    margin-top:60px;
+    display:flex;
+    gap:20px;
+}
+
+.circles span{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#3b82f6;
+    box-shadow:
+        0 0 15px #3b82f6,
+        0 0 30px #2563eb;
+}
+
+/* Card */
+
+.form-card{
+    background:rgba(15,23,42,.82);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border-radius:24px;
+    padding:40px;
+    color:white;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45);
+}
+
+.form-card h2{
+    font-size:2rem;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    color:#b9c6e8;
+    margin-bottom:30px;
+}
+
+/* Inputs */
+
+.input-group{
+    margin-bottom:22px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-size:.92rem;
+    color:#d7e3ff;
+}
+
+.input-group input{
+    width:100%;
+    padding:15px 18px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.08);
+    background:#101c34;
+    color:white;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.input-group input::placeholder{
+    color:#9ca3af;
+}
+
+.input-group input:focus{
+    border-color:#3b82f6;
+    box-shadow:
+        0 0 0 4px rgba(59,130,246,.18);
+}
+
+/* Button */
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.35s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 10px 25px rgba(37,99,235,.4);
+}
+
+/* Login */
+
+.login-link{
+    margin-top:28px;
+    text-align:center;
+    color:#b9c6e8;
+}
+
+.login-link a{
+    color:#60a5fa;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.login-link a:hover{
+    text-decoration:underline;
+}
+
+/* Errors */
+
+.error{
+    display:block;
+    margin-top:6px;
+    color:#ff8b8b;
+    font-size:.82rem;
+}
+
+/* Help text */
+
+.helptext{
+    display:block;
+    color:#94a3b8;
+    margin-top:6px;
+    font-size:.78rem;
+    line-height:1.5;
+}
+
+ul{
+    margin-top:6px;
+    margin-left:18px;
+    color:#ff9d9d;
+    font-size:.82rem;
+}
+
+/* Tablet */
+
+@media(max-width:900px){
+
+    .container{
+        grid-template-columns:1fr;
+        max-width:500px;
+    }
+
+    .left-side{
+        display:none;
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:500px){
+
+    .form-card{
+        padding:28px;
+        border-radius:20px;
+    }
+
+    .form-card h2{
+        font-size:1.7rem;
+    }
+
+    button{
+        padding:14px;
+    }
+
+}
