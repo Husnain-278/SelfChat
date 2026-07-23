@@ -25,6 +25,8 @@ SelfGPT is a Django-based application that lets users upload PDF documents, inde
 
 ## Installation
 
+### Option 1: Using uv
+
 1. Clone the repository:
 
    ```bash
@@ -32,14 +34,37 @@ SelfGPT is a Django-based application that lets users upload PDF documents, inde
    cd SelfGPT
    ```
 
-2. Create and activate a virtual environment:
+2. Install uv if you do not already have it:
+
+   ```bash
+   pip install uv
+   ```
+
+3. Create and sync the environment:
+
+   ```bash
+   uv venv
+   uv pip install -e .
+   ```
+
+4. Create your environment file:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+5. Update the values in .env for your local setup.
+
+### Option 2: Using pip
+
+1. Create and activate a virtual environment:
 
    ```bash
    python -m venv .venv
    source .venv/bin/activate
    ```
 
-3. Install dependencies:
+2. Install dependencies:
 
    ```bash
    pip install -r requirements.txt
@@ -51,13 +76,13 @@ SelfGPT is a Django-based application that lets users upload PDF documents, inde
    pip install -e .
    ```
 
-4. Create your environment file:
+3. Create your environment file:
 
    ```bash
    cp .env.example .env
    ```
 
-5. Update the values in .env for your local setup.
+4. Update the values in .env for your local setup.
 
 ## Environment Variables
 
